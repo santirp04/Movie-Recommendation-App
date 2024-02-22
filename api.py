@@ -2,9 +2,10 @@ import requests
 
 def fetchData(name):
     # The headers are required to authenticate the request
+    creds = ...  # Define the variable "creds" with the appropriate value
     headers = {
         "accept": "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzODBhNGU5OGNkMjIyZWMxMWQ1MmY5NjExOGIwZmRjZSIsInN1YiI6IjY1ZDRmZjUyNTZiOWY3MDE3Y2IyOWM2NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hCotRo8Fj6W9HOc00lI3RKVja3teyKxWGheJOg09API"
+        "Authorization": "Bearer " + creds
     }
     response = requests.get("https://api.themoviedb.org/3/search/movie?query="+name+"&include_adult=true&language=en-US&page=1", headers=headers)
 
