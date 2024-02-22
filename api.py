@@ -18,6 +18,6 @@ def fetchData(name):
         poster_image = first_movie.get('poster_path')
 
     
-    return movie_name, description, poster_image
+    return movie_name, description, poster_image   # returns the movie name, description and poster image
     
     
