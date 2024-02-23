@@ -11,4 +11,8 @@ from gui import runApp
 
 
 # Run the app
-runApp()
+def main():
+    runApp()
+    
+if __name__ == "__main__":
+    main()
