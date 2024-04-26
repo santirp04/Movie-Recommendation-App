@@ -8,10 +8,9 @@ from io import BytesIO
 
 def runApp():
     app = CTk()
+    app.title("Kino Recs")
     app.geometry("500x700")
 
-    
-    
     
     def displayData(movie_name, description, poster_image, movie_id):
         base_url = "https://image.tmdb.org/t/p/w500"  # Replace with the actual base URL
@@ -65,29 +64,29 @@ def runApp():
             pass
         
         # Displays the recommended movie's posters
-        poster1 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[0][1]).content)), size=(99, 165))
+        poster1 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[0][1]).content)), size=(99, 144.144))
         poster1_label = CTkLabel(app, image=poster1, text="")
         poster1_label.place(x=30, y=500)
         poster1_button = CTkButton(app, text="See More", font=("Nexa Heavy", 10), command=button1_handler, width=99, height=20)
-        poster1_button.place(x=30, y=673)
+        poster1_button.place(x=30, y=663)
 
-        poster2 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[1][1]).content)), size=(99, 165))
+        poster2 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[1][1]).content)), size=(99, 144.144))
         poster2_label = CTkLabel(app, image=poster2, text="")
         poster2_label.place(x=144, y=500)
         poster2_button = CTkButton(app, text="See More", font=("Nexa Heavy", 10), command=button2_handler, width=99, height=20)
-        poster2_button.place(x=144, y=673)
+        poster2_button.place(x=144, y=663)
 
-        poster3 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[2][1]).content)), size=(99, 165))
+        poster3 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[2][1]).content)), size=(99, 144.144))
         poster3_label = CTkLabel(app, image=poster3, text="")
         poster3_label.place(x=258, y=500)
         poster3_button = CTkButton(app, text="See More", font=("Nexa Heavy", 10), command=button3_handler, width=99, height=20)
-        poster3_button.place(x=258, y=673)
+        poster3_button.place(x=258, y=663)
 
-        poster4 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[3][1]).content)), size=(99, 165))
+        poster4 = CTkImage(Image.open(BytesIO(requests.get("https://image.tmdb.org/t/p/w500" + recommended[3][1]).content)), size=(99, 144.144))
         poster4_label = CTkLabel(app, image=poster4, text="")
         poster4_label.place(x=372, y=500)
         poster4_button = CTkButton(app, text="See More", font=("Nexa Heavy", 10), command=button4_handler, width=99, height=20)
-        poster4_button.place(x=372, y=673)
+        poster4_button.place(x=372, y=663)
         return 0
 
 
@@ -96,8 +95,10 @@ def runApp():
         movie_name, description, poster_image, movie_id = fetchData(entry.get())
         displayData(movie_name, description, poster_image, movie_id)
     
-    #logo = CTkImage(Image.open("kinorecs.png"), size=(200, 200))
-    #logo.place(x=150, y=0)
+    
+    logo = CTkImage(Image.open(os.path.join(os.path.dirname(__file__), "assets", "kinorecs.png")), size=(100, 100))
+    logo_label = CTkLabel(app, image=logo, text="")
+    logo_label.place(x=360, y=-15)
         
     label = CTkLabel(app, text="Enter the name of the movie", font=("Nexa Heavy", 20))
     label.place(x=30, y=30)
